@@ -1,11 +1,11 @@
 import os
-import openai
+from openai import OpenAI
 from dotenv import load_dotenv
 import ffmpeg
 
 load_dotenv()
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def transcribe_audio(audio_path: str) -> str:
     """
@@ -17,14 +17,12 @@ def transcribe_audio(audio_path: str) -> str:
     # ffmpeg.input(audio_path).output("tmp.wav", ac=1, ar="16000").run()
 
     with open(audio_path, "rb") as f:
-        transcript = openai.Audio.transcribe(
+        transcript = client.audio.transcriptions.create(
             model="whisper-1",
             file=f,
-            # you can choose response_format, e.g. "verbose_json"
             response_format="text"
         )
-    text = transcript["text"] if isinstance(transcript, dict) else transcript
-    return text
+    return transcript
 
 
 if __name__ == "__main__":

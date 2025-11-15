@@ -13,6 +13,8 @@ from dotenv import load_dotenv
 from document_processor import DocumentProcessor
 from claude_client import ClaudeClient
 from logger import AuditLogger
+from transcriber import transcribe_audio
+from summarizer import summarize_transcript
 
 # Load environment variables
 load_dotenv()
@@ -27,7 +29,7 @@ app = FastAPI(
 # Enable CORS for React frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:5173"],  # React dev servers
+    allow_origins=["http://localhost:3000", "http://localhost:3001", "http://localhost:3002", "http://localhost:5173"],  # React dev servers
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -194,6 +196,71 @@ async def get_logs():
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/api/audio/upload")
+async def upload_audio(file: UploadFile = File(...)):
+    """
+    Upload and process audio file (courtroom recording, etc.)
+    Transcribes audio to text using OpenAI Whisper, then analyzes like a document
+    """
+    try:
+        # Validate file type
+        allowed_extensions = ['.mp3', '.wav', '.m4a', '.ogg', '.flac', '.webm']
+        file_ext = os.path.splitext(file.filename)[1].lower()
+        
+        if file_ext not in allowed_extensions:
+            raise HTTPException(
+                status_code=400, 
+                detail=f"Unsupported audio format. Supported: {', '.join(allowed_extensions)}"
+            )
+        
+        # Save audio file temporarily
+        temp_audio_path = f"data/uploads/temp_audio{file_ext}"
+        os.makedirs("data/uploads", exist_ok=True)
+        
+        with open(temp_audio_path, "wb") as f:
+            content = await file.read()
+            f.write(content)
+        
+        # Log operation
+        logger.log_event("audio_upload", {
+            "filename": file.filename,
+            "size": len(content)
+        })
+        
+        # Transcribe audio
+        transcript = transcribe_audio(temp_audio_path)
+        
+        # Summarize transcript
+        summary = summarize_transcript(transcript)
+        
+        # Clean up temp file
+        if os.path.exists(temp_audio_path):
+            os.remove(temp_audio_path)
+        
+        # Log transcription
+        logger.log_ai_operation(
+            operation="audio_transcription",
+            input_length=len(content),
+            output_data={"transcript_length": len(transcript)},
+            model="whisper-1"
+        )
+        
+        return {
+            "success": True,
+            "data": {
+                "filename": file.filename,
+                "transcript": transcript,
+                "summary": summary,
+                "text": transcript  # Also provide as 'text' for compatibility with document flow
+            }
+        }
+        
+    except Exception as e:
+        # Clean up on error
+        if 'temp_audio_path' in locals() and os.path.exists(temp_audio_path):
+            os.remove(temp_audio_path)
+        raise HTTPException(status_code=500, detail=f"Audio processing error: {str(e)}")
 
 @app.get("/api/test-claude")
 async def test_claude():

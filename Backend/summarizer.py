@@ -1,9 +1,9 @@
 import os
-import openai
+from openai import OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def summarize_transcript(transcript: str) -> str:
     """
@@ -14,7 +14,7 @@ def summarize_transcript(transcript: str) -> str:
         {"role": "system", "content": "You are an AI assistant that summarizes courtroom proceedings."},
         {"role": "user", "content": f"Here is the transcript of a courtroom session:\n\n{transcript}\n\nPlease provide a summary including key events: who spoke, objections, rulings, and main arguments."}
     ]
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-4",  # or gpt-3.5-turbo
         messages=messages,
         temperature=0,
@@ -35,7 +35,7 @@ def extract_key_points(transcript: str) -> str:
         {"role": "system", "content": "You are an AI assistant that extracts structured information from courtroom transcripts."},
         {"role": "user", "content": f"Analyze this transcript:\n\n{transcript}\n\nList key events in bullets (speaker, what they said, objections, rulings)."}
     ]
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-4",
         messages=messages,
         temperature=0,
