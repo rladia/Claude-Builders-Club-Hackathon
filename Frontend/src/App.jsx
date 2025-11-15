@@ -428,35 +428,52 @@ function App() {
                   Upload your legal documents and get a summary of the laws relevant to your case.
                 </div>
 
-                {/* Document preview illustration */}
-                <div style={{ width: '100%', height: 253, background: '#FFD388', borderRadius: 12, padding: 16, marginBottom: 24 }}>
-                  {[...Array(10)].map((_, i) => (
-                    <div key={i} style={{ height: 7.4, background: '#9D6722', borderRadius: 100, marginBottom: 8, width: `${60 + Math.random() * 40}%` }} />
-                  ))}
-                </div>
-
-                {/* Get Started button */}
+                {/* Drag & Drop button */}
                 <button
                   onClick={() => setShowMenu(false)}
                   style={{
                     width: '100%',
                     height: 77,
-                    background: '#9D6722',
+                    background: '#FFE3BF',
                     borderRadius: 12,
-                    border: 'none',
-                    color: 'white',
+                    border: '1px solid #9D6722',
+                    color: 'black',
                     fontSize: 24,
-                    fontFamily: 'Young Serif',
+                    fontFamily: 'Albert Sans',
+                    fontWeight: '400',
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    gap: 8
+                    gap: 8,
+                    marginBottom: 24
                   }}
                 >
-                  Get Started
-                  <img src={uploadArrowSvg} alt="Arrow" style={{ width: 18, height: 24, filter: 'brightness(0) invert(1)' }} />
+                  Drag & Drop or Upload
+                  <span style={{ fontSize: 28 }}>↑</span>
                 </button>
+
+                {/* Document preview illustration */}
+                <div style={{ 
+                  width: '100%', 
+                  height: 280, 
+                  background: '#FFD388', 
+                  borderRadius: 12, 
+                  padding: 24,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  gap: 16
+                }}>
+                  {/* Document lines */}
+                  <div style={{ width: '30%', height: 8, background: '#9D6722', borderRadius: 4 }} />
+                  <div style={{ width: '25%', height: 8, background: '#9D6722', borderRadius: 4 }} />
+                  <div style={{ width: '85%', height: 8, background: '#9D6722', borderRadius: 4, marginTop: 8 }} />
+                  <div style={{ width: '80%', height: 8, background: '#9D6722', borderRadius: 4 }} />
+                  <div style={{ width: '70%', height: 8, background: '#9D6722', borderRadius: 4 }} />
+                  <div style={{ width: '85%', height: 8, background: '#9D6722', borderRadius: 4 }} />
+                  <div style={{ width: '75%', height: 8, background: '#9D6722', borderRadius: 4 }} />
+                </div>
               </div>
 
               {/* Language Card */}
@@ -839,7 +856,7 @@ function App() {
                 }}
               >
                 {loading ? 'Processing...' : 'Analyze Document'}
-              </button>
+        </button>
             )}
           </div>
         )}
