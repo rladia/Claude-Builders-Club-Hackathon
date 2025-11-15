@@ -73,6 +73,9 @@ With more time and resources, the next steps are:
 --
 
 ## Team Members and Contributions
+
 Remi Ladia: Project idea, backend development
+
 Izabela Litwinowicz: Frontend development
+
 Jingyu Shi: Backend development
