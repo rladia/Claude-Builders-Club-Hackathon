@@ -1,5 +1,4 @@
 # LegisLight: AI for Better Governance
-
 LegisLight is an AI-driven tool designed to improve transparency, accessibility, and understanding of legislative and legal documents.
 
 ---
@@ -12,22 +11,16 @@ Demonstrate an end-to-end data flow for an AI assistant that can:
 4. Translate outputs into multiple languages
 5. Do this securely, transparently, and without giving legal advice
 
---
-
 ## Installation/setup instructions
-
 --
 
 ## Usage Guide
-
 --
 
 ## Tech Stack
-
 --
 
 ## Claude API Integration
-
 A. Simplification & Summaries
 - Section-by-section rewriting
 - Plain-language summaries
@@ -42,10 +35,7 @@ C. Translation
 - Back-translation to verify accuracy
 - Multi-language support
 
--- 
-
 ## Challenges and Solutions
-
 1. Parsing Inconsistent Legal Documents
 
 *Challenge*: Bills and court notices vary massively in formatting.
@@ -54,10 +44,7 @@ C. Translation
 - Implement heuristics + regex for headings
 - Fall back to LLM-based structure detection when needed
 
---
-
 ## Future Plans
-
 With more time and resources, the next steps are:
 
 1. Automated Legal Citations and Definitions
@@ -70,12 +57,9 @@ With more time and resources, the next steps are:
 - Public database of simplified bills
 - Keyword and concept search
 
---
-
 ## Team Members and Contributions
-
 Remi Ladia: Project idea, backend development
 
-Izabela Litwinowicz: Frontend development
+Izabela Litwinowicz: User experience designer (UX/UI Interface)
 
 Jingyu Shi: Backend development
