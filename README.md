@@ -18,6 +18,10 @@ Demonstrate an end-to-end data flow for an AI assistant that can:
 --
 
 ## Tech Stack
+- Frontend: React
+- Backend: FastAPI, Python
+- APIs: Claud, OpenAI
+
 --
 
 ## Claude API Integration
