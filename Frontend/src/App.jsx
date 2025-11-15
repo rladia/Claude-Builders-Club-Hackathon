@@ -40,7 +40,7 @@ function App() {
       });
 
       setDocumentData(response.data.data);
-      
+
       // Auto-analyze after upload
       await handleAnalyze(response.data.data.text);
     } catch (error) {
@@ -70,26 +70,26 @@ function App() {
 
   const handleTranslateAll = async () => {
     if (!analyzedData || !analyzedData.segmented_doc) return;
-    
+
     setLoading(true);
     try {
       const sections = analyzedData.segmented_doc.sections;
       const translations = {};
-      
+
       // Translate first 3 sections to Spanish
       for (let i = 0; i < Math.min(3, sections.length); i++) {
         const section = sections[i];
         const simplified = analyzedData.simplified_sections[section.heading];
         const textToTranslate = simplified?.plain_summary || section.body;
-        
+
         const response = await axios.post(`${API_BASE_URL}/api/translate`, {
           text: textToTranslate,
           target_language: 'Spanish'
         });
-        
+
         translations[section.heading] = response.data.data.translation;
       }
-      
+
       setTranslatedContent(translations);
       setShowTranslations(true);
     } catch (error) {
@@ -107,10 +107,10 @@ function App() {
     const sectionsToShow = sections.slice(0, 3); // Show first 3 sections
 
     return (
-      <div style={{padding: '0 48px', position: 'relative', width: '100%'}}>
+      <div style={{ padding: '0 48px', position: 'relative', width: '100%' }}>
         {/* First Section */}
         {sectionsToShow[0] && (
-          <div style={{marginTop: 48}}>
+          <div style={{ marginTop: 48 }}>
             <div style={{
               color: 'black',
               fontSize: 24,
@@ -132,7 +132,7 @@ function App() {
               overflow: 'hidden',
               lineHeight: 1.5
             }}>
-              {showTranslations && translatedContent[sectionsToShow[0].heading] 
+              {showTranslations && translatedContent[sectionsToShow[0].heading]
                 ? translatedContent[sectionsToShow[0].heading]
                 : analyzedData.simplified_sections[sectionsToShow[0].heading]?.plain_summary || sectionsToShow[0].body.substring(0, 500) + '...'}
             </div>
@@ -141,7 +141,7 @@ function App() {
 
         {/* Second Section */}
         {sectionsToShow[1] && (
-          <div style={{marginTop: 64}}>
+          <div style={{ marginTop: 64 }}>
             <div style={{
               color: 'black',
               fontSize: 24,
@@ -172,7 +172,7 @@ function App() {
 
         {/* Third Section */}
         {sectionsToShow[2] && (
-          <div style={{marginTop: 64}}>
+          <div style={{ marginTop: 64 }}>
             <div style={{
               color: 'black',
               fontSize: 24,
@@ -202,43 +202,43 @@ function App() {
         )}
 
         {/* Pagination dots */}
-        <div style={{marginTop: 48, display: 'flex', gap: 8}}>
-          <div style={{width: 16, height: 16, borderRadius: 9999, border: '2px black solid', backgroundColor: currentPage === 0 ? 'black' : 'transparent', cursor: 'pointer'}} onClick={() => setCurrentPage(0)} />
-          <div style={{width: 16, height: 16, borderRadius: 9999, border: '2px black solid', backgroundColor: currentPage === 1 ? 'black' : 'transparent', cursor: 'pointer'}} onClick={() => setCurrentPage(1)} />
-          <div style={{width: 16, height: 16, borderRadius: 9999, border: '2px black solid', backgroundColor: currentPage === 2 ? 'black' : 'transparent', cursor: 'pointer'}} onClick={() => setCurrentPage(2)} />
+        <div style={{ marginTop: 48, display: 'flex', gap: 8 }}>
+          <div style={{ width: 16, height: 16, borderRadius: 9999, border: '2px black solid', backgroundColor: currentPage === 0 ? 'black' : 'transparent', cursor: 'pointer' }} onClick={() => setCurrentPage(0)} />
+          <div style={{ width: 16, height: 16, borderRadius: 9999, border: '2px black solid', backgroundColor: currentPage === 1 ? 'black' : 'transparent', cursor: 'pointer' }} onClick={() => setCurrentPage(1)} />
+          <div style={{ width: 16, height: 16, borderRadius: 9999, border: '2px black solid', backgroundColor: currentPage === 2 ? 'black' : 'transparent', cursor: 'pointer' }} onClick={() => setCurrentPage(2)} />
         </div>
       </div>
     );
   };
 
   return (
-    <div style={{width: '100%', minHeight: '100vh', position: 'relative', background: '#070739', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+    <div style={{ width: '100%', minHeight: '100vh', position: 'relative', background: '#070739', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       {/* Top navigation bar */}
-      <div style={{width: '100%', height: 48, position: 'fixed', top: 0, background: 'black', zIndex: 100, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-        <div style={{width: '100%', maxWidth: 1440, display: 'flex', justifyContent: 'space-between', padding: '0 32px', alignItems: 'center'}}>
-          <img src={logoSvg} alt="LegisLight" style={{height: 32}} />
-          <img src={ellipsesSvg} alt="Menu" style={{height: 16, cursor: 'pointer'}} />
+      <div style={{ width: '100%', height: 48, position: 'fixed', top: 0, background: 'black', zIndex: 100, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div style={{ width: '100%', maxWidth: 1440, display: 'flex', justifyContent: 'space-between', padding: '0 32px', alignItems: 'center' }}>
+          <img src={logoSvg} alt="LegisLight" style={{ height: 32 }} />
+          <img src={ellipsesSvg} alt="Menu" style={{ height: 16, cursor: 'pointer' }} />
         </div>
       </div>
 
       {/* Main content container - centered */}
-      <div style={{width: '100%', maxWidth: 1200, marginTop: 48, position: 'relative', minHeight: 976}}>
+      <div style={{ width: '100%', maxWidth: 852, marginTop: 48, position: 'relative', minHeight: 976 }}>
         {/* Yellow background area */}
-        <div style={{width: '100%', height: 976, position: 'absolute', background: '#FFD388', borderRadius: 0}} />
-        
-        {/* White content area - centered */}
-        <div style={{width: 'calc(100% - 32px)', height: 976, position: 'absolute', left: 16, background: 'white', borderRadius: 0}} />
-      
+        <div style={{ width: '100%', height: 976, position: 'absolute', background: '#FFD388', borderRadius: 0 }} />
+
+        {/* White content area - exactly 820px wide with 16px yellow borders on both sides */}
+        <div style={{ width: 820, height: 976, position: 'absolute', left: 16, background: 'white', borderRadius: 0 }} />
+
         {/* Gradient overlay */}
-        <div style={{width: '100%', height: 120, bottom: 0, position: 'absolute', background: 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #DCDCDC 100%)'}} />
-        
-        {/* Buttons container at bottom */}
-        <div style={{position: 'absolute', bottom: 40, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 16, alignItems: 'center'}}>
+        <div style={{ width: '100%', height: 120, bottom: 0, position: 'absolute', background: 'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #DCDCDC 100%)' }} />
+
+        {/* Buttons container - visible without scrolling */}
+        <div style={{ position: 'absolute', top: 500, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 16, alignItems: 'center', zIndex: 10 }}>
           {/* Upload button */}
           <input
             type="file"
             id="file-upload"
-            style={{display: 'none'}}
+            style={{ display: 'none' }}
             onChange={handleFileChange}
             accept=".pdf,.txt,.docx"
           />
@@ -268,8 +268,8 @@ function App() {
           </label>
 
           {/* Upload icon */}
-          <img src={uploadArrowSvg} alt="Upload" style={{width: 18, height: 26}} />
-          
+          <img src={uploadArrowSvg} alt="Upload" style={{ width: 18, height: 26 }} />
+
           {/* Translate/Analyze button */}
           {analyzedData ? (
             <button
@@ -318,7 +318,7 @@ function App() {
               }}>
                 {loading ? 'Processing...' : 'Analyze'}
               </div>
-        </button>
+            </button>
           )}
         </div>
 
