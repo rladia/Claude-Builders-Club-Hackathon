@@ -1,0 +1,88 @@
+SENATE BILL No. 123
+
+Introduced by Senator Smith
+February 1, 2024
+
+An act to add Section 1234 to the Civil Code, relating to tenant protections.
+
+LEGISLATIVE COUNSEL'S DIGEST
+
+SB 123, as introduced, Smith. Residential tenancies: rent increases: limitations.
+
+Existing law regulates the terms and conditions of residential tenancies, including the amount of rent that may be charged and the circumstances under which rent may be increased.
+
+This bill would enact the Tenant Protection Act of 2024 to establish additional protections for residential tenants throughout the state.
+
+THE PEOPLE OF THE STATE DO ENACT AS FOLLOWS:
+
+SECTION 1. Short Title
+
+This act shall be known and may be cited as the "Tenant Protection Act of 2024."
+
+SECTION 2. Legislative Findings and Declarations
+
+The Legislature finds and declares all of the following:
+
+(a) Housing affordability is a critical issue affecting millions of residents in this state.
+
+(b) Unreasonable rent increases can lead to housing instability and displacement of long-term residents.
+
+(c) Tenants need clear notice and reasonable limitations on rent increases to maintain stable housing.
+
+(d) Additional protections are necessary to ensure fair treatment of tenants while respecting the rights of property owners.
+
+SECTION 3. Definitions
+
+For purposes of this section, the following definitions shall apply:
+
+(a) "Rent increase" means any increase in the amount of rent charged to a tenant for a residential dwelling unit.
+
+(b) "Residential property" means any dwelling unit that is used as a residence, including apartments, houses, and manufactured homes, but excluding hotels, motels, and transient occupancy.
+
+(c) "Landlord" means any person or entity who owns residential property and rents or leases that property to a tenant.
+
+(d) "Tenant" means a person who rents or leases residential property from a landlord.
+
+(e) "12-month period" means the 12 consecutive months preceding the effective date of any rent increase.
+
+SECTION 4. Rent Increase Limitations
+
+(a) A landlord shall not increase the rent for a residential property by more than 5 percent plus the percentage change in the cost of living, or 10 percent, whichever is lower, within any 12-month period.
+
+(b) For purposes of subdivision (a), the percentage change in the cost of living shall be the change in the Consumer Price Index for All Urban Consumers for the metropolitan area in which the property is located.
+
+(c) Any rent increase that exceeds the limitations set forth in subdivision (a) shall be void and unenforceable.
+
+SECTION 5. Notice Requirements
+
+(a) A landlord shall provide written notice to a tenant at least 90 days before any rent increase takes effect if the increase is 10 percent or less of the rental amount charged to that tenant at any time during the 12 months prior to the effective date of the increase.
+
+(b) If a rent increase exceeds 10 percent, the landlord shall provide written notice to the tenant at least 120 days before the increase takes effect.
+
+(c) The notice shall be in writing and shall include:
+   (1) The amount of the current rent
+   (2) The amount of the proposed rent increase
+   (3) The effective date of the rent increase
+   (4) A statement of the tenant's rights under this section
+
+SECTION 6. Enforcement and Remedies
+
+(a) A tenant may bring a civil action for violation of this section. The prevailing tenant may recover:
+   (1) Actual damages
+   (2) A civil penalty not to exceed five thousand dollars ($5,000)
+   (3) Reasonable attorney's fees and costs
+
+(b) In addition to the remedies provided in subdivision (a), a tenant may report violations to the Department of Consumer Affairs, which may investigate and take appropriate action.
+
+SECTION 7. Exceptions
+
+This section does not apply to:
+(a) Housing that has been issued a certificate of occupancy within the previous 15 years
+(b) Housing restricted by deed, regulatory agreement, or other recorded document as affordable housing
+(c) Dormitories owned and operated by educational institutions
+(d) Housing operated by nonprofit organizations where rents are set based on tenant income
+
+SECTION 8. Effective Date
+
+This act shall take effect on January 1, 2025.
+
