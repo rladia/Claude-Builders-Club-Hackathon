@@ -454,11 +454,11 @@ function App() {
                 </button>
 
                 {/* Document preview illustration */}
-                <div style={{ 
-                  width: '100%', 
-                  height: 280, 
-                  background: '#FFD388', 
-                  borderRadius: 12, 
+                <div style={{
+                  width: '100%',
+                  height: 280,
+                  background: '#FFD388',
+                  borderRadius: 12,
                   padding: 24,
                   display: 'flex',
                   flexDirection: 'column',
@@ -712,54 +712,6 @@ function App() {
                 </div>
                 <div style={{ fontSize: 24 }}>↑</div>
               </label>
-
-              {/* Translate Button */}
-              <button
-                onClick={() => {
-                  // Open first section and scroll to it
-                  setExpandedSection(0);
-                  setTimeout(() => {
-                    window.scrollTo({ top: 400, behavior: 'smooth' });
-                  }, 100);
-                }}
-                style={{
-                  minWidth: 200,
-                  height: 60,
-                  background: '#FFF2E1',
-                  borderRadius: 12,
-                  border: '2px solid #9D6722',
-                  cursor: 'pointer',
-                  fontSize: 24,
-                  fontFamily: 'Young Serif',
-                  color: 'black'
-                }}
-              >
-                Translate
-              </button>
-
-              {/* Source Button */}
-              <button
-                onClick={() => {
-                  setExpandedSection(0);
-                  setViewMode({ ...viewMode, 0: 'original' });
-                  setTimeout(() => {
-                    window.scrollTo({ top: 400, behavior: 'smooth' });
-                  }, 100);
-                }}
-                style={{
-                  minWidth: 180,
-                  height: 60,
-                  background: '#FFF2E1',
-                  borderRadius: 12,
-                  border: '2px solid #9D6722',
-                  cursor: 'pointer',
-                  fontSize: 24,
-                  fontFamily: 'Young Serif',
-                  color: 'black'
-                }}
-              >
-                Source
-              </button>
             </div>
           </>
         ) : (
@@ -856,7 +808,7 @@ function App() {
                 }}
               >
                 {loading ? 'Processing...' : 'Analyze Document'}
-        </button>
+              </button>
             )}
           </div>
         )}
