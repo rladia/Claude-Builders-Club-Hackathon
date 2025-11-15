@@ -49,6 +49,7 @@ C. Translation
 1. Parsing Inconsistent Legal Documents
 
 *Challenge*: Bills and court notices vary massively in formatting.
+
 *Solution*:
 - Implement heuristics + regex for headings
 - Fall back to LLM-based structure detection when needed
