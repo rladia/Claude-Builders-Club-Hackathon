@@ -4,6 +4,7 @@ import './App.css';
 import logoSvg from './assets/logo.svg';
 import uploadArrowSvg from './assets/upload-arrow.svg';
 import ellipsesSvg from './assets/ellipses.svg';
+import questionImgSvg from './assets/question-img.svg';
 
 const API_BASE_URL = 'http://localhost:8000';
 
@@ -413,10 +414,8 @@ function App() {
                   Not sure where to start? Click here to find out more about this website and how it works.
                 </div>
                 {/* Question mark icon */}
-                <div style={{ display: 'flex', justifyContent: 'center', marginTop: 48 }}>
-                  <div style={{ width: 184, height: 231, background: '#9D6722', borderRadius: 8, outline: '16px #FFD388 solid', position: 'relative' }}>
-                    <div style={{ width: 33, height: 33, background: '#9D6722', borderRadius: 9999, outline: '16px #FFD388 solid', position: 'absolute', bottom: -50, left: '50%', transform: 'translateX(-50%)' }} />
-                  </div>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 48 }}>
+                  <img src={questionImgSvg} alt="Question" style={{ width: 150, height: 'auto' }} />
                 </div>
               </div>
 
